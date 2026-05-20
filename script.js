@@ -4,9 +4,14 @@ function init(){
 }
 
 function renderBooks(){
-    let bookRef = document.getElementById("book_shelf");
-    bookRef.innerHTML = "";
-    bookRef.innerHTML += getBooksTemplate();
+    const bookListRef = document.getElementById("book_shelf");
+    bookListRef.innerHTML = "";
+
+    for(let index = 0; index < bookList.length; index++){
+        const book = bookList[index];
+        bookListRef.innerHTML += getBooksTemplate();
+    }
+    
 }
 
 

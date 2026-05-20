@@ -1,4 +1,4 @@
-const books = [
+const bookList = [
     {
       "name": "Die Geheimnisse des Ozeans",
       "author": "Clara Meer",
