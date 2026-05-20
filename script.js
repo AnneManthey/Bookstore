@@ -1,22 +1,25 @@
+let currentBook = 0;
 
 function init(){
     renderBooks();
 }
 
 function renderBooks(){
+    //let book = bookList[currentBook]
+
     const bookListRef = document.getElementById("book_shelf");
     bookListRef.innerHTML = "";
 
     for(let index = 0; index < bookList.length; index++){
         const book = bookList[index];
-        bookListRef.innerHTML += getBooksTemplate();
+        bookListRef.innerHTML += getBooksTemplate(index);
     }
     
 }
 
 
-// Variablen in html template
-// for-loop anlegen & JSON rendern lassen
+// Variablen in html template einbinden
+
 // Like-Funktion: Onclick Button Bild Ändern + Likes +1/-1
 // Kommentar-Funktion: Text aus Input auslesen und als Kommentar hinzufügen
 

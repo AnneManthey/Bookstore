@@ -1,8 +1,8 @@
-function getBooksTemplate(){
+function getBooksTemplate(index){
     return /*html*/`
         <article class="book_card">
             <header class="book_header">
-                <h2 id="book_title">Title</h2>
+                <h2 id="book_title">${bookList.name}</h2>
                 <div class="book_header_cover"><img src="./assets/icons/book_icon.svg" alt="Book cover"></div> 
             </header>
             <section class="book_body">
