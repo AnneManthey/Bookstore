@@ -34,8 +34,8 @@ function getBooksTemplate(index){
                 </table>
             </section>
             <footer class="book_footer">
-                <input type="text" id="comment_input_${index}" class="comment_input" name="comment" placeholder="Schreibe einen Kommentar ..."><br><br>
-                <button onclick="addComment()" class="comment_button"><img src="./assets/icons/send_icon.png" alt="send_icon"></button>
+                <input id="comment_input_${index}" type="text" class="comment_input" placeholder="Schreibe einen Kommentar ...">
+                <button onclick="addComment(${index})" class="comment_button"><img src="./assets/icons/send_icon.png" alt="send_icon"></button>
             </footer>
         </article>
     `

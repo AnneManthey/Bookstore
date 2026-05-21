@@ -23,12 +23,15 @@ function renderComments(index) {
 }
 
 function addComment(index){
-    const commentInputRef = document.getElementById(`comment_input_${index}`)
+    const commentInputRef = document.getElementById(`comment_input_${index}`)  
     let commentInput = commentInputRef.value;
         if (commentInputRef.value != ""){
-            bookList[index].comments.push(commentInputRef.value);
+            bookList[index].comments.push = [{
+                "name": "anonym",
+                "comment": commentInput
+            }];
             renderComments(index);
-
+            commentInputRef.value = "";
         }
 
 }
