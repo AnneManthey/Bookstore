@@ -32,10 +32,10 @@ function getBooksTemplate(index){
                 <div class="book_comment_section">
                     <h3>Kommentare:</h3>
                 <table id="comment_section" class="book_table">
-                    <tr>
+                    <!-- <tr>
                         <th>[Username]</th>
                         <td id="book_comments">Kommentar</td>
-                    </tr>
+                    </tr> -->
                     
                 </table>
                 </div>
