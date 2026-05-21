@@ -36,6 +36,24 @@ function addComment(index){
 
 }
 
+function switchLike(index){
+    const likeRef = document.getElementById(`like_img_${index}`);
+    let likeCounterRef = document.getElementById(`book_likes_${index}`);
+    
+    if(likeRef.src.includes("like_outline.svg")){
+        likeRef.src = "./assets/icons/like_filled.svg"
+        bookList[index].likes++;
+        let likeCounter = document.getElementById(`book_likes_${index}`);
+        likeCounterRef.innerText = bookList[index].likes;
+
+    }
+    else {
+        likeRef.src = "./assets/icons/like_outline.svg";
+        bookList[index].likes--;
+        let likeCounter = document.getElementById(`book_likes_${index}`);
+        likeCounterRef.innerText = bookList[index].likes;
+    }
+}
 
 
 
@@ -43,10 +61,10 @@ function addComment(index){
 
 // To do:
 
-// Comments in eigener Schleife auslesen und anzeigen
+
 // Kommentar-Funktion: Text aus Input auslesen, array hinzufügen und anzeigen
 // Like-Funktion: Onclick Button Bild Ändern + Likes +1/-1
-// Preis auslesen & mit , anzeigen
+// Preis mit , anzeigen
 
 // Bonus: Local Storage
 // Bonus: Favoriten markieren & anzeigen lassen
