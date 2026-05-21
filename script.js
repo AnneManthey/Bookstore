@@ -26,10 +26,11 @@ function addComment(index){
     const commentInputRef = document.getElementById(`comment_input_${index}`)  
     let commentInput = commentInputRef.value;
         if (commentInputRef.value != ""){
-            bookList[index].comments.push = [{
+            bookList[index].comments.push = ({
                 "name": "anonym",
-                "comment": commentInput
-            }];
+                "comment": commentInput.value,
+            });
+            console.log(bookList[index].comments[0].name);
             renderComments(index);
             commentInputRef.value = "";
         }
@@ -63,8 +64,9 @@ function switchLike(index){
 
 
 // Kommentar-Funktion: Text aus Input auslesen, array hinzufügen und anzeigen
-// Like-Funktion: Onclick Button Bild Ändern + Likes +1/-1
 // Preis mit , anzeigen
+
+
 
 // Bonus: Local Storage
 // Bonus: Favoriten markieren & anzeigen lassen
