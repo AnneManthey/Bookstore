@@ -9,9 +9,7 @@ function renderBooks() {
 
     for (let index = 0; index < bookList.length; index++) {
         bookListRef.innerHTML += getBooksTemplate(index);
-        
         renderComments(index);
-
     }
 }
 
@@ -22,6 +20,17 @@ function renderComments(index) {
     for (let commentIndex = 0; commentIndex < bookList[index].comments.length; commentIndex++) {
         bookCommentRef.innerHTML += getCommentsTemplate(index, commentIndex);
     }
+}
+
+function addComment(index){
+    const commentInputRef = document.getElementById(`comment_input_${index}`)
+    let commentInput = commentInputRef.value;
+        if (commentInputRef.value != ""){
+            bookList[index].comments.push(commentInputRef.value);
+            renderComments(index);
+
+        }
+
 }
 
 
