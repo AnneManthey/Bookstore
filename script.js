@@ -1,5 +1,4 @@
 
-
 function init() {
     renderBooks();
 }
@@ -17,7 +16,7 @@ function renderBooks() {
 }
 
 function renderComments(index) {
-    const bookCommentRef = document.getElementById("comment_section");
+    const bookCommentRef = document.getElementById(`comment_section_${index}`);
     bookCommentRef.innerHTML = "";
 
     for (let commentIndex = 0; commentIndex < bookList[index].comments.length; commentIndex++) {

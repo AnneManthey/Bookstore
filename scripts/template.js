@@ -30,7 +30,7 @@ function getBooksTemplate(index){
             </section>
             <section class="book_comment_section">
                 <h3>Kommentare:</h3>
-                <table id="comment_section" class="book_table">
+                <table id="comment_section_${index}" class="book_table">
                 </table>
             </section>
             <footer class="book_footer">
