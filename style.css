@@ -104,7 +104,7 @@ h3 {
 }
 
 .book_comment_section {
-    min-height: 180px;
+    height: 180px;
     display: flex;
     flex-direction: column;
     padding: 8px;
