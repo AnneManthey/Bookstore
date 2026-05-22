@@ -26,7 +26,7 @@ function addComment(index){
     const commentInputRef = document.getElementById(`comment_input_${index}`)  
         if (commentInputRef.value != ""){
             bookList[index].comments.push({
-                "name": "anonym",
+                "name": "Hoid",
                 "comment": commentInputRef.value,
             });
             console.log(bookList[index].comments[0].name);
@@ -61,8 +61,6 @@ function switchLike(index){
 
 
 // To do:
-
-// Kommentar-Funktion: Text aus Input auslesen, array hinzufügen und anzeigen
 
 
 

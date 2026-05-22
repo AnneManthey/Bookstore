@@ -2,7 +2,7 @@ function getBooksTemplate(index){
     return /*html*/`
         <article class="book_card">
             <header class="book_header">
-                <h2 id="book_title">${bookList[index].name}</h2>
+                <div class="book_title"><h2 id="book_title">${bookList[index].name}</h2></div>
                 <div class="book_header_cover"><img src="./assets/icons/book_icon.svg" alt="Book cover"></div>
             </header>
             <section class="book_body">
@@ -30,8 +30,8 @@ function getBooksTemplate(index){
             </section>
             <section class="book_comment_section">
                 <h3>Kommentare:</h3>
-                <table id="comment_section_${index}" class="book_table">
-                </table>
+                <div class="comment_wrapper"><table id="comment_section_${index}" class="book_table">
+                </table></div>
             </section>
             <footer class="book_footer">
                 <input id="comment_input_${index}" type="text" class="comment_input" placeholder="Schreibe einen Kommentar ...">
@@ -44,7 +44,7 @@ function getBooksTemplate(index){
 function getCommentsTemplate(index, commentIndex){
     return /*html*/ `
             <tr>
-                <th>${bookList[index].comments[commentIndex].name}</th>
+                <th>[${bookList[index].comments[commentIndex].name}]</th>
                 <td id="book_comments">${bookList[index].comments[commentIndex].comment}</td>
             </tr>   
     `

@@ -1,16 +1,49 @@
 :root{
-    --dark-background: rgba(9, 36, 47, 1);
-    --light-background:rgba(16, 63, 80, 0.5);
-    --border-blue: rgba(36, 84, 101, 1);
+    --dark-background: rgb(4, 37, 5);
+    --light-background:rgba(17, 75, 28, 0.5);
+    --border-blue: rgb(82, 129, 80, 0.5);
     --price-red: rgb(204, 63, 31);
 
 }
 
-
-
+html{
+    font-family: "Figtree";
+    color: antiquewhite;
+    font-size: 16px;
+}
 
 * {
     margin: 0px;
     box-sizing: border-box;
     scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--dark-background);
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--light-background);
+    border-radius: 5px;
+    border: 1px solid rgb(82, 129, 80, 0.5);
+}
+
+.comment_wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.comment_wrapper::-webkit-scrollbar-track {
+    background: var(--dark-background);
+    border-radius: 5px;
+}
+
+.comment_wrapper::-webkit-scrollbar-thumb {
+    background: var(--light-background);
+    border-radius: 5px;
+    border: 1px solid rgb(82, 129, 80, 0.5);
 }
