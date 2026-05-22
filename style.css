@@ -6,6 +6,7 @@ body {
 main {
     padding: 20px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 16px;
 }
@@ -145,4 +146,14 @@ h3 {
 .comment_button img {
     width: 20px;
     height: 20px;
+}
+
+@media screen and (min-width: 1440px) {
+  main {
+    padding: 100px max(200px, calc(50% - 720px));
+  }
+
+  .page_header {
+    padding: 0px max(200px, calc(50% - 720px));
+  }
 }
