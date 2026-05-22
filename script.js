@@ -9,13 +9,16 @@ function renderBooks() {
 
     for (let index = 0; index < bookList.length; index++) {
         bookListRef.innerHTML += getBooksTemplate(index);
+        
         renderComments(index);
     }
 }
 
+
 function renderComments(index) {
     const bookCommentRef = document.getElementById(`comment_section_${index}`);
     bookCommentRef.innerHTML = "";
+    getFromLocalStorage(index);
 
     for (let commentIndex = 0; commentIndex < bookList[index].comments.length; commentIndex++) {
         bookCommentRef.innerHTML += getCommentsTemplate(index, commentIndex);
@@ -29,7 +32,7 @@ function addComment(index){
                 "name": "Hoid",
                 "comment": commentInputRef.value,
             });
-            console.log(bookList[index].comments[0].name);
+            safeToLocalStorage(index)
             renderComments(index);
             commentInputRef.value = "";
         }
@@ -55,8 +58,22 @@ function switchLike(index){
     }
 }
 
+function safeData(index){
 
+    safeToLocalStorage(index);
+}
 
+function safeToLocalStorage(index){
+    localStorage.setItem("bookList.comments", JSON.stringify(bookList[index].comments));
+
+}
+
+function getFromLocalStorage(index){
+    let safedComments = JSON.parse(localStorage.getItem(bookList[index].comments))
+    if (safedComments != null){
+        bookList[index].comments = safedComments;
+    }
+}
 
 
 
