@@ -148,6 +148,31 @@ h3 {
     height: 20px;
 }
 
+
+@media screen and (max-width: 450px) {
+
+h2{
+    font-size: 1.2rem;
+}
+
+main {
+    padding: 8px;
+    
+    gap: 8px;
+}
+
+.book_card {
+    height: 750px;
+    width: 315px;
+    padding: 16px;
+}
+
+.book_table th{
+    font-size: 1rem;
+}
+
+}
+
 @media screen and (min-width: 1440px) {
   main {
     padding: 100px max(200px, calc(50% - 720px));
