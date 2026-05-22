@@ -7,7 +7,7 @@ function getBooksTemplate(index){
             </header>
             <section class="book_body">
                 <div class="book_body_price">
-                    <p id="book_price">${bookList[index].price}€</p>
+                    <p id="book_price">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(bookList[index].price)}</p>
                     <div class="book_likes">
                         <p id="book_likes_${index}">${bookList[index].likes}</p>
                         <button onclick="switchLike(${index})" id="like_button" class="like_button"><img id="like_img_${index}" src="./assets/icons/like_outline.svg" alt="like icon"></button>

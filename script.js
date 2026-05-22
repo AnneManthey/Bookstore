@@ -24,11 +24,10 @@ function renderComments(index) {
 
 function addComment(index){
     const commentInputRef = document.getElementById(`comment_input_${index}`)  
-    let commentInput = commentInputRef.value;
         if (commentInputRef.value != ""){
-            bookList[index].comments.push = ({
+            bookList[index].comments.push({
                 "name": "anonym",
-                "comment": commentInput.value,
+                "comment": commentInputRef.value,
             });
             console.log(bookList[index].comments[0].name);
             renderComments(index);
