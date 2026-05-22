@@ -78,8 +78,11 @@ function getFromLocalStorage(index){
 
 
 // To do:
+// Responsive anpassen
+// Code kommentieren, überprüfen & säubern
+// Loom für Abgabe erstellen
 
 
-
-// Bonus: Local Storage
+// Bonus: Local Storage safe/load implementieren
 // Bonus: Favoriten markieren & anzeigen lassen
+        //Buttons für Favoriten erstellen
