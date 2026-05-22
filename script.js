@@ -60,11 +60,10 @@ function switchLike(index){
 
 
 
+
 // To do:
 
-
 // Kommentar-Funktion: Text aus Input auslesen, array hinzufügen und anzeigen
-// Preis mit , anzeigen
 
 
 
