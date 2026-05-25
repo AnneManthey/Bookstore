@@ -1,6 +1,7 @@
 
 function init() {
     renderBooks();
+    
 }
 
 function renderBooks() {
@@ -13,6 +14,7 @@ function renderBooks() {
         getComments(index);
         getLikes(index);
         renderComments(index);
+        renderLikes(index);
     }
 }
 
@@ -24,9 +26,18 @@ function renderComments(index) {
 
     for (let commentIndex = 0; commentIndex < bookList[index].comments.length; commentIndex++) {
         bookCommentRef.innerHTML += getCommentsTemplate(index, commentIndex);
-        
     }
 }
+
+function renderLikes(index) {
+    let bookLikeRef = document.getElementById(`book_likes_${index}`);
+    bookLikeRef.innerHTML = "";
+    getLikes(index);
+    bookLikeRef.innerHTML += `${bookList[index].likes}`;
+    bookLikeRef = "";
+}
+
+
 
 function addComment(index){
     const commentInputRef = document.getElementById(`comment_input_${index}`)  
@@ -61,14 +72,13 @@ function switchLike(index){
     }
 
     safeLikes(index);
+    likeRef.value ="";
 }
 
 
 
 function safeComments(index){
     localStorage.setItem(`bookList${index}.comments`, JSON.stringify(bookList[index].comments));    
-    
-    
 }
 
 function safeLikes(index){
@@ -81,14 +91,14 @@ function getComments(index){
     if (safedComments != null){
         bookList[index].comments = safedComments;
     }
-
 }
 
 function getLikes(index){
     let safedLikes = JSON.parse(localStorage.getItem(`bookList${index}.likes`))
+    if (safedLikes != null){
     bookList[index].likes = safedLikes;      
     }
-
+}
 
 
 // To do:
