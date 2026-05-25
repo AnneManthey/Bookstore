@@ -10,11 +10,29 @@ function renderBooks() {
     for (let index = 0; index < bookList.length; index++) {
         getLikes(index);
         bookListRef.innerHTML += getBooksTemplate(index);
+        renderLikes(index);
         renderComments(index);
     }
+}
+
+function renderFavBooks(){
+
+    const bookListRef = document.getElementById("book_shelf");
+    bookListRef.innerHTML = "";
+
     for (let index = 0; index < bookList.length; index++) {
+        getLikes(index);
+        if(bookList[index].liked === true){
+        bookListRef.innerHTML += getBooksTemplate(index);
+        renderComments(index);
+        }
+    }
+    for (let index = 0; index < bookList.length; index++) {
+        if(bookList[index].liked === true){
+        getLikes(index);
         renderLikes(index);
-    };
+        }
+    }
 }
 
 
@@ -90,7 +108,7 @@ function getComments(index) {
 
 function getLikes(index) {
     let safedLikesCount = localStorage.getItem(`bookList${index}.likes`);
-    let safedLiked = localStorage.getItem(`bookList${index}.likes`);
+    let safedLiked = localStorage.getItem(`bookList${index}.liked`);
     if (safedLikesCount != null) {
         bookList[index].likes = JSON.parse(safedLikesCount);
     }
@@ -101,15 +119,18 @@ function getLikes(index) {
     }
 }
 
-//let safedLikesCount = JSON.parse(localStorage.getItem(`bookList${index}.likes`));
+
 
 
 // To do:
+
+// fix likes
+
 // Responsive anpassen
 // Code kommentieren, überprüfen & säubern
 // Loom für Abgabe erstellen
 
 
-// Bonus: Local Storage safe/load implementieren
-// Bonus: Favoriten markieren & anzeigen lassen (über ID hinzufügen bei like o.ä.?)
-//Buttons für Favoriten erstellen
+
+// Bonus: Favoriten anzeigen lassen 
+
