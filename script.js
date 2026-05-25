@@ -1,7 +1,6 @@
 
 function init() {
     renderBooks();
-    
 }
 
 function renderBooks() {
@@ -9,13 +8,13 @@ function renderBooks() {
     bookListRef.innerHTML = "";
 
     for (let index = 0; index < bookList.length; index++) {
-        
-        bookListRef.innerHTML += getBooksTemplate(index);
-        getComments(index);
         getLikes(index);
+        bookListRef.innerHTML += getBooksTemplate(index);
         renderComments(index);
-        renderLikes(index);
     }
+    for (let index = 0; index < bookList.length; index++) {
+        renderLikes(index);
+    };
 }
 
 
@@ -30,75 +29,79 @@ function renderComments(index) {
 }
 
 function renderLikes(index) {
-    let bookLikeRef = document.getElementById(`book_likes_${index}`);
-    bookLikeRef.innerHTML = "";
-    getLikes(index);
-    bookLikeRef.innerHTML += `${bookList[index].likes}`;
-    bookLikeRef = "";
-}
-
-
-
-function addComment(index){
-    const commentInputRef = document.getElementById(`comment_input_${index}`)  
-        if (commentInputRef.value != ""){
-            bookList[index].comments.push({
-                "name": "Hoid",
-                "comment": commentInputRef.value,
-            });
-            safeComments(index);
-            renderComments(index);
-            commentInputRef.value = "";
-        }
-
-}
-
-function switchLike(index){
     const likeRef = document.getElementById(`like_img_${index}`);
-    let likeCounterRef = document.getElementById(`book_likes_${index}`);
-    
-    if(likeRef.src.includes("like_outline.svg")){
-        likeRef.src = "./assets/icons/like_filled.svg"
-        bookList[index].likes++;
-        let likeCounter = document.getElementById(`book_likes_${index}`);
-        likeCounterRef.innerText = bookList[index].likes;
+    const bookLikeRef = document.getElementById(`book_likes_${index}`);
 
+    bookLikeRef.innerText = bookList[index].likes;
+
+    if (bookList[index].liked === false) {
+        likeRef.src = "./assets/icons/like_outline.svg";
     }
     else {
-        likeRef.src = "./assets/icons/like_outline.svg";
-        bookList[index].likes--;
-        let likeCounter = document.getElementById(`book_likes_${index}`);
-        likeCounterRef.innerText = bookList[index].likes;
+        likeRef.src = "./assets/icons/like_filled.svg"
+    }
+}
+
+
+function addComment(index) {
+    const commentInputRef = document.getElementById(`comment_input_${index}`)
+    if (commentInputRef.value != "") {
+        bookList[index].comments.push({
+            "name": "Hoid",
+            "comment": commentInputRef.value,
+        });
+        safeComments(index);
+        renderComments(index);
+        commentInputRef.value = "";
     }
 
+}
+
+function changeLikeCounter(index) {                             // Likes-Zähler + bzw. -
+    bookList[index].liked = !bookList[index].liked;
+
+    if (bookList[index].liked == true) {
+        bookList[index].likes++;
+    }
+    else {
+        bookList[index].likes--;
+    }
+    renderLikes(index);
     safeLikes(index);
-    likeRef.value ="";
 }
 
 
-
-function safeComments(index){
-    localStorage.setItem(`bookList${index}.comments`, JSON.stringify(bookList[index].comments));    
+function safeComments(index) {
+    localStorage.setItem(`bookList${index}.comments`, JSON.stringify(bookList[index].comments));
 }
 
-function safeLikes(index){
+function safeLikes(index) {
     localStorage.setItem(`bookList${index}.likes`, JSON.stringify(bookList[index].likes));
+    localStorage.setItem(`bookList${index}.liked`, JSON.stringify(bookList[index].liked)); 
 }
 
 
-function getComments(index){
-    let safedComments = JSON.parse(localStorage.getItem(`bookList${index}.comments`))      
-    if (safedComments != null){
+function getComments(index) {
+    let safedComments = JSON.parse(localStorage.getItem(`bookList${index}.comments`))
+    if (safedComments != null) {
         bookList[index].comments = safedComments;
     }
 }
 
-function getLikes(index){
-    let safedLikes = JSON.parse(localStorage.getItem(`bookList${index}.likes`))
-    if (safedLikes != null){
-    bookList[index].likes = safedLikes;      
+function getLikes(index) {
+    let safedLikesCount = localStorage.getItem(`bookList${index}.likes`);
+    let safedLiked = localStorage.getItem(`bookList${index}.likes`);
+    if (safedLikesCount != null) {
+        bookList[index].likes = JSON.parse(safedLikesCount);
+    }
+
+    if (safedLiked != null) {
+        bookList[index].liked = JSON.parse(safedLiked);
+
     }
 }
+
+//let safedLikesCount = JSON.parse(localStorage.getItem(`bookList${index}.likes`));
 
 
 // To do:
@@ -109,4 +112,4 @@ function getLikes(index){
 
 // Bonus: Local Storage safe/load implementieren
 // Bonus: Favoriten markieren & anzeigen lassen (über ID hinzufügen bei like o.ä.?)
-        //Buttons für Favoriten erstellen
+//Buttons für Favoriten erstellen
