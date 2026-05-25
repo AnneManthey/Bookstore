@@ -1,5 +1,6 @@
 function getBooksTemplate(index){
     return /*html*/`
+        
         <article class="book_card">
             <header class="book_header">
                 <div class="book_title"><h2 id="book_title">${bookList[index].name}</h2></div>
