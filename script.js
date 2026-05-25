@@ -8,8 +8,10 @@ function renderBooks() {
     bookListRef.innerHTML = "";
 
     for (let index = 0; index < bookList.length; index++) {
-        bookListRef.innerHTML += getBooksTemplate(index);
         
+        bookListRef.innerHTML += getBooksTemplate(index);
+        getComments(index);
+        getLikes(index);
         renderComments(index);
     }
 }
@@ -18,10 +20,11 @@ function renderBooks() {
 function renderComments(index) {
     const bookCommentRef = document.getElementById(`comment_section_${index}`);
     bookCommentRef.innerHTML = "";
-    getFromLocalStorage(index);
+    getComments(index);
 
     for (let commentIndex = 0; commentIndex < bookList[index].comments.length; commentIndex++) {
         bookCommentRef.innerHTML += getCommentsTemplate(index, commentIndex);
+        
     }
 }
 
@@ -32,7 +35,7 @@ function addComment(index){
                 "name": "Hoid",
                 "comment": commentInputRef.value,
             });
-            safeToLocalStorage(index)
+            safeComments(index);
             renderComments(index);
             commentInputRef.value = "";
         }
@@ -56,24 +59,35 @@ function switchLike(index){
         let likeCounter = document.getElementById(`book_likes_${index}`);
         likeCounterRef.innerText = bookList[index].likes;
     }
+
+    safeLikes(index);
 }
 
-function safeData(index){
 
-    safeToLocalStorage(index);
+
+function safeComments(index){
+    localStorage.setItem(`bookList${index}.comments`, JSON.stringify(bookList[index].comments));    
+    
+    
 }
 
-function safeToLocalStorage(index){
-    localStorage.setItem("bookList.comments", JSON.stringify(bookList[index].comments));
-
+function safeLikes(index){
+    localStorage.setItem(`bookList${index}.likes`, JSON.stringify(bookList[index].likes));
 }
 
-function getFromLocalStorage(index){
-    let safedComments = JSON.parse(localStorage.getItem(bookList[index].comments))
+
+function getComments(index){
+    let safedComments = JSON.parse(localStorage.getItem(`bookList${index}.comments`))      
     if (safedComments != null){
         bookList[index].comments = safedComments;
     }
+
 }
+
+function getLikes(index){
+    let safedLikes = JSON.parse(localStorage.getItem(`bookList${index}.likes`))
+    bookList[index].likes = safedLikes;      
+    }
 
 
 
@@ -84,5 +98,5 @@ function getFromLocalStorage(index){
 
 
 // Bonus: Local Storage safe/load implementieren
-// Bonus: Favoriten markieren & anzeigen lassen
+// Bonus: Favoriten markieren & anzeigen lassen (über ID hinzufügen bei like o.ä.?)
         //Buttons für Favoriten erstellen
