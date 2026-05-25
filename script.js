@@ -124,7 +124,7 @@ function getLikes(index) {
 
 // To do:
 
-// fix likes
+
 
 // Responsive anpassen
 // Code kommentieren, überprüfen & säubern
@@ -132,5 +132,5 @@ function getLikes(index) {
 
 
 
-// Bonus: Favoriten anzeigen lassen 
+
 
