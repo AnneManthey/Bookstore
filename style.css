@@ -32,7 +32,8 @@ button {
     display: flex;
     justify-content: center;
     gap: 16px;
-    padding-top: 16px;
+    padding-bottom: 16px;
+    background-color: var(--light-background);
 }
 
 h1 {
