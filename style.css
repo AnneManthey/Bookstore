@@ -3,14 +3,6 @@ body {
     background-color: var(--dark-background);
 }
 
-main {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
 button {
     padding: 0;
     border: none;
@@ -69,6 +61,14 @@ h3 {
 
 .page_header>img {
     height: 90px;
+}
+
+.book_shelf {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .book_card {
@@ -176,11 +176,7 @@ h3 {
     height: 20px;
 }
 
-
-
-
 @media screen and (max-width: 400px) {
-
     h1 {
         font-size: 1.2rem;
     }
@@ -189,7 +185,7 @@ h3 {
         font-size: 1.2rem;
     }
 
-    main {
+    .book_shelf {
         padding: 8px;
         gap: 8px;
     }
@@ -226,14 +222,10 @@ h3 {
         width: 85%;
         font-size: 1rem;
     }
-
 }
 
-
-
-
 @media screen and (min-width: 1440px) {
-    main {
+    .book_shelf {
         padding: 100px max(200px, calc(50% - 720px));
     }
 

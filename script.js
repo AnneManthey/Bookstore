@@ -117,8 +117,6 @@ function getLikes(index) {                            // updates like count and 
 // To do:
 
 
-
-// Responsive anpassen
 // Code kommentieren, überprüfen & säubern
 // Loom für Abgabe erstellen
 
