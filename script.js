@@ -35,6 +35,18 @@ function renderComments(index) {
     }
 }
 
+function changeLikeCounter(index) {                             // adds +1 to likes or resets it
+    bookList[index].liked = !bookList[index].liked;             // switches onclick the boolean of liked from false to true & reverse
+    if (bookList[index].liked == true) {
+        bookList[index].likes++;
+    }
+    else {
+        bookList[index].likes--;
+    }
+    renderLikeImg(index);                                      // sets like img according to boolean status
+    safeLikes(index);
+}
+
 function renderLikeImg(index) {                                               // switches img for liked = true/false
     const likeRef = document.getElementById(`like_img_${index}`);
     const bookLikeRef = document.getElementById(`book_likes_${index}`);
@@ -52,23 +64,12 @@ function addComment(index) {
     if (commentInputRef.value != "") {
         bookList[index].comments.push({                     // adds name and comment to comments array
             "name": "Hoid",
-            "comment": commentInputRef.value});
+            "comment": commentInputRef.value
+        });
         safeComments(index);
         renderComments(index);
         commentInputRef.value = "";
     }
-}
-
-function changeLikeCounter(index) {                             // adds +1 to likes or resets it
-    bookList[index].liked = !bookList[index].liked;             // switches onclick the boolean of liked from false to true & reverse
-    if (bookList[index].liked == true) {
-        bookList[index].likes++;
-    }
-    else {
-        bookList[index].likes--;
-    }
-    renderLikeImg(index);                                      // sets like img according to boolean status
-    safeLikes(index);
 }
 
 function safeComments(index) {
