@@ -133,12 +133,24 @@ h3 {
 
 .book_table {
     text-align: left;
+    
 }
 
 .book_table th {
     vertical-align: text-top;
     padding-right: 8px;
+    overflow-wrap:break-word;
 }
+
+.book_table td{
+   overflow-wrap:break-word;
+}
+
+table {
+    table-layout: fixed; 
+    width: 100%; 
+}
+
 
 .book_comment_section {
     display: flex;
