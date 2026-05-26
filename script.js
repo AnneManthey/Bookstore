@@ -5,7 +5,6 @@ function init() {
 function renderBooks() {
     const bookListRef = document.getElementById("book_shelf");
     bookListRef.innerHTML = "";
-
     for (let index = 0; index < bookList.length; index++) {
         getLikes(index);                                      // first, because liked true/false is needed for img rendering in template
         bookListRef.innerHTML += getBooksTemplate(index);
@@ -17,7 +16,6 @@ function renderBooks() {
 function renderFavBooks() {
     const bookListRef = document.getElementById("book_shelf");
     bookListRef.innerHTML = "";
-
     for (let index = 0; index < bookList.length; index++) {
         getLikes(index);                                        // first, because liked true/false is needed for img & if query
         if (bookList[index].liked === true) {                   // renders only liked=true books
@@ -32,7 +30,6 @@ function renderComments(index) {
     const bookCommentRef = document.getElementById(`comment_section_${index}`);
     bookCommentRef.innerHTML = "";
     getComments(index);                                         // gets data from local storage before rendering
-
     for (let commentIndex = 0; commentIndex < bookList[index].comments.length; commentIndex++) {
         bookCommentRef.innerHTML += getCommentsTemplate(index, commentIndex);
     }
@@ -101,12 +98,6 @@ function getLikes(index) {                            // updates like count and 
     }
 }
 
-
-
-
-// To do:
-
-// Loom für Abgabe erstellen
 
 
 
