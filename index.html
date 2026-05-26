@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookstore</title>
+    <title>Bücherecke</title>
     <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.png">
 
     <link rel="stylesheet" href="style.css">
@@ -17,14 +17,14 @@
 
 <body onload="init()">
     <header class="page_header">
-        <img src="./assets/icons/header.png" alt="Book icon">
-        <h1>Bookstore</h1>
-        <section class="favorite_buttons">
-            <button onclick="init()" class="fav_button">Alle Bücher</button>
-            <button onclick="renderFavBooks()" class="fav_button">Favoriten</button>
-        </section>
+        
+            <img src="./assets/icons/header.png" alt="Book icon">
+            <h1>Bücherecke</h1>
     </header>
-
+    <section class="favorite_button_section">
+        <button onclick="init()" class="fav_button">Alle Bücher</button>
+        <button onclick="renderFavBooks()" class="fav_button">Favoriten</button>
+    </section>
 
     <main id="book_shelf">
     </main>

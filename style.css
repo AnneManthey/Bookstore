@@ -20,18 +20,31 @@ button {
     overflow: hidden;
 }
 
-.fav_button{
+.fav_button {
+    width: 140px;
     padding: 16px;
     background: fixed;
     border: 2px solid var(--border-blue);
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
     color: antiquewhite;
+    font-size: 1.2rem;
 }
 
-.fav_button:hover{
+.fav_button:hover {
     background-color: var(--border-blue);
+}
+
+.favorite_button_section {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding-top: 16px;
+}
+
+h1 {
+    text-align: center;
 }
 
 h2 {
@@ -48,6 +61,7 @@ h3 {
     height: 80px;
     display: flex;
     background-color: var(--light-background);
+    justify-content: center;
     align-items: center;
     gap: 24px;
     padding: 32px 64px;
@@ -129,7 +143,7 @@ h3 {
     text-align: left;
 }
 
-.book_table th{
+.book_table th {
     vertical-align: text-top;
     padding-right: 8px;
 }
@@ -163,38 +177,67 @@ h3 {
 }
 
 
-@media screen and (max-width: 450px) {
 
-h2{
-    font-size: 1.2rem;
+
+@media screen and (max-width: 400px) {
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    main {
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .fav_button {
+        width: 120px;
+        font-size: 1rem;
+    }
+
+    .book_card {
+        height: 750px;
+        width: 315px;
+        padding: 16px;
+    }
+
+    .page_header {
+        height: 50px;
+        gap: 5px;
+    }
+
+    .page_header>img {
+        height: 70px;
+    }
+
+    .book_table th {
+        font-size: 0.8rem;
+    }
+
+    .book_table td {
+        font-size: 0.9rem;
+    }
+
+    .comment_input {
+        width: 85%;
+        font-size: 1rem;
+    }
+
 }
 
-main {
-    padding: 8px;
-    
-    gap: 8px;
-}
 
 
-
-.book_card {
-    height: 750px;
-    width: 315px;
-    padding: 16px;
-}
-
-.book_table th{
-    font-size: 1rem;
-}
-
-}
 
 @media screen and (min-width: 1440px) {
-  main {
-    padding: 100px max(200px, calc(50% - 720px));
-  }
+    main {
+        padding: 100px max(200px, calc(50% - 720px));
+    }
 
-  .page_header {
-    padding: 0px max(200px, calc(50% - 720px));
-  }
+    .page_header {
+        padding: 0px max(200px, calc(50% - 720px));
+    }
 }
